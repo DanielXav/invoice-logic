@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: invoiceLogic
+  datasource:
+    url: jdbc:h2:mem:invoicelogic
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+server:
+  port: 8082
+
+aws:
+  queue:
+    listener:
+      name: INVOICE-JSON
