@@ -4,11 +4,13 @@ import com.danielxavier.invoiceLogic.domain.Person
 
 interface PersonRepository {
 
-    fun findById(personId: Int): Person?
+    fun findById(personId: Long): Person?
 
     fun findAll(): List<Person>
 
-    fun insert(person: Person)
+    fun insert(person: Person): Person?
 
-    fun deleteById(personId: Int)
+    fun update(personId: Long, person: Person): Person?
+
+    fun deleteById(personId: Long)
 }
