@@ -11,6 +11,6 @@ data class PersonEntity  (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0L,
-    val name: String = "",
-    val age: LocalDate = LocalDate.now()
+    var name: String = "",
+    var age: LocalDate = LocalDate.now()
 )
