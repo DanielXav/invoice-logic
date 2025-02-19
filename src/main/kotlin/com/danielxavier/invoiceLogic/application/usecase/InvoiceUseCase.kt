@@ -1,14 +1,17 @@
 package com.danielxavier.invoiceLogic.application.usecase
 
-import com.danielxavier.invoiceLogic.adapter.`in`.queue.event.InvoiceEvent
-import com.danielxavier.invoiceLogic.application.ports.`in`.InvoiceUseCasePort
+import com.danielxavier.invoiceLogic.application.ports.out.InvoiceRepository
+import com.danielxavier.invoiceLogic.domain.Invoice
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
 
 @Component
-class InvoiceUseCase(): InvoiceUseCasePort {
-    override fun execute(invoiceEvent: InvoiceEvent) {
-        logger.info("Itens:  ${invoiceEvent.id}, ${invoiceEvent.date}, ${invoiceEvent.value}, ${invoiceEvent.items}")
+class InvoiceUseCase(
+    private val invoiceRepository: InvoiceRepository
+) {
+    fun execute(invoice: Invoice) {
+        logger.info("Itens:  ${invoice.idEvent}, ${invoice.date}, ${invoice.invoiceValue}, ${invoice.items}")
+        invoiceRepository.insert(invoice)
     }
 
     companion object {

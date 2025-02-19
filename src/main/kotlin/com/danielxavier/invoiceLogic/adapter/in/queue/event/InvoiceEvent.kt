@@ -1,15 +1,16 @@
 package com.danielxavier.invoiceLogic.adapter.`in`.queue.event
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import java.time.LocalDateTime
 
 data class InvoiceEvent(
-    val id: String,
-    val value: Double,
+    @JsonProperty("id") val idEvent: String,
+    @JsonProperty("value") val invoiceValue: Double,
     val date: LocalDateTime,
-    val items: List<InvoiceItem>
+    val items: List<InvoiceItemEvent>
 )
 
-data class InvoiceItem(
+data class InvoiceItemEvent(
     val establishment: String,
-    val value: Double
+    @JsonProperty("value") val invoiceValue: Double
 )
